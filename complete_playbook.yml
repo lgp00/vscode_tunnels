@@ -1,0 +1,11 @@
+---  
+- name: Complete installation of VS code "{{ vscode_version }}" & start custom VS code tunnel
+  hosts: localhost
+  gather_facts: false
+  vars_prompt:
+    - name: vscode_tunnel_name #variable
+      prompt: "Enter the name for the Visual Studio Code tunnel: "
+      private: false
+  roles: 
+    - install_vscode_tunnels_role
+    - start_vscode_tunnels_role

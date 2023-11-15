@@ -1,0 +1,6 @@
+---  
+- name: Stop vscode tunnel
+  hosts: localhost
+  gather_facts: false
+  roles: 
+    - stop_vscode_tunnels_role

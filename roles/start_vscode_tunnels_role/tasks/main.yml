@@ -1,0 +1,46 @@
+---
+# tasks file for start_vscode_tunnels_role
+# - name: rename vscode tunnel
+#   ansible.builtin.shell:
+#     cmd: code tunnel rename "{{ vscode_tunnel_name }}"
+
+# - name: start vscode tunnel (or restart)
+#   ansible.builtin.shell:
+#     cmd: code tunnel service install
+
+# - name: daemon reload if tunnel fails
+#   ansible.builtin.shell:
+#     cmd: systemctl --user daemon-reload
+
+# - name: Print vscode tunnels link
+#   ansible.builtin.debug:
+#     msg: "https://vscode.dev/tunnel/{{ vscode_tunnel_name }}"
+
+
+- name: Rename VS Code tunnel
+  ansible.builtin.shell:
+    cmd: code tunnel rename "{{ vscode_tunnel_name }}"
+
+- name: Start or restart VS Code tunnel
+  ansible.builtin.shell:
+    cmd: code tunnel service install
+  register: vscode_tunnel_start
+
+- name: Check if VS Code tunnel start failed
+  when: vscode_tunnel_start.rc != 0
+  fail:
+    msg: "VS Code tunnel start failed"
+
+- name: Reload systemd user services if tunnel fails
+  when: vscode_tunnel_start.rc != 0
+  ansible.builtin.shell:
+    cmd: systemctl --user daemon-reload
+
+- name: Rerun VS Code tunnel start if previous start failed
+  when: vscode_tunnel_start.rc != 0
+  ansible.builtin.shell:
+    cmd: code tunnel service install
+
+- name: Print VS Code tunnel link
+  ansible.builtin.debug:
+    msg: "https://vscode.dev/tunnel/{{ vscode_tunnel_name }}"
