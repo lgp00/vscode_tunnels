@@ -1,8 +1,14 @@
 ---
+- name: install tldr yum 
+  become: yes
+  ansible.builtin.yum:
+    name: tldr
+    state: present
+
 # tasks file for vscode_tunnels_role
-- name: Print the hostname
-  ansible.builtin.debug:
-    msg: "{{ ansible_hostname }}"
+# - name: Print the hostname
+#   ansible.builtin.debug:
+#     msg: "{{ ansible_hostname }}"
 
 - meta: end_play
 
