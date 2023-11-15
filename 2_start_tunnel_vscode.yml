@@ -7,4 +7,4 @@
       prompt: "Enter the name for the Visual Studio Code tunnel: "
       private: false
   roles: 
-    - stop_vscode_tunnels_role
+    - start_vscode_tunnels_role
