@@ -1,11 +1,4 @@
 ---
-# tasks file for vscode_tunnels_role
-# - name: Print the hostname
-#   ansible.builtin.debug:
-#     msg: "{{ ansible_hostname }}"
-
-- meta: end_play
-
 - name: Download vscode {{vscode_version}} rpm package    
   become: yes
   ansible.builtin.get_url:
@@ -24,12 +17,13 @@
     name: /tmp/code-{{ vscode_version }}-1673284922.el7.x86_64.rpm
     state: present
 
+- name: Print vscode tunnels link
+  ansible.builtin.debug:
+    msg: https://vscode.dev/tunnel/redhatworkstation
+
 - name: Enable vscode tunnels from CLI 
   ansible.builtin.shell:
-    cmd: code tunnel
-#   register: vscode_tunnel_link
+    cmd: code tunnel --name redhatworkstation
 
-# - name: Print vscode tunnels link
-#   ansible.builtin.debug:
-#     var: vscode_tunnel_link
+
 
