@@ -21,7 +21,7 @@
 
 - name: Enable vscode tunnels from CLI 
   ansible.builtin.shell:
-    cmd: code tunnel
+    cmd: code tunnel --headless
   register: vscode_tunnel_link
 
 - name: Print vscode tunnels link
