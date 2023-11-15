@@ -1,5 +1,10 @@
----
+---  
 - name: Install VsCode version "{{ vscode_version }}"
   hosts: work_machine
+  gather_facts: false
+  vars_prompt:
+    - name: vscode_tunnel_name #variable
+      prompt: "Enter the name for the Visual Studio Code tunnel: "
+      private: true
   roles: 
     - vscode_tunnels_role

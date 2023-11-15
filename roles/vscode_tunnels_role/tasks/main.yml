@@ -19,11 +19,10 @@
 
 - name: Print vscode tunnels link
   ansible.builtin.debug:
-    msg: https://vscode.dev/tunnel/redhatworkstation
+    msg: "https://vscode.dev/tunnel/{{ vscode_tunnel_name }}"
 
-- name: Enable vscode tunnels from CLI 
+- name: Enable vscode tunnels from CLI
   ansible.builtin.shell:
-    cmd: code tunnel --name redhatworkstation
-
+    cmd: code tunnel --name "{{ vscode_tunnel_name }}"
 
 
