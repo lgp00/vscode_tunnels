@@ -11,7 +11,6 @@
     state: present
     key: https://packages.microsoft.com/keys/microsoft.asc
 
-
 - name: Install the vscode {{vscode_version}} rpm from a local file
   ansible.builtin.yum:
     name: /tmp/code-{{ vscode_version }}-1673284922.el7.x86_64.rpm
