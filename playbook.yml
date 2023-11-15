@@ -5,6 +5,6 @@
   vars_prompt:
     - name: vscode_tunnel_name #variable
       prompt: "Enter the name for the Visual Studio Code tunnel: "
-      # private: true
+      private: false
   roles: 
     - vscode_tunnels_role
