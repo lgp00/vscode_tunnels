@@ -1,0 +1,12 @@
+---
+# tasks file for vscode_tunnels_role
+
+- name: Download vscode {{vscode_version}} rpm package    
+  ansible.builtin.get_url:
+    url: "https://update.code.visualstudio.com/{{ vscode_version }}/linux-rpm-x64/stable"
+    dest: /tmp
+
+- name: Install the vscode {{vscode_version}} rpm from a local file
+  ansible.builtin.yum:
+    name: /tmp/code-{{ vscode_version }}-1673284922.el7.x86_64.rpm
+    state: present

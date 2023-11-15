@@ -1,0 +1,6 @@
+---
+- name: Install VsCode version "{{ vscode_version }}"
+  hosts: work_machine
+  become: yes
+  roles: 
+    - vscode_tunnels_role
