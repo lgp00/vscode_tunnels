@@ -34,7 +34,7 @@ To stop the Vscode tunnel, run the following command:
 ansible-playbook -i inventory 3_stop_tunnel_vscode.yml
 ```
 
-**Note:** The -K option is necessary for some commands that need root access, but not for all.
+**Note:** The `-K` option is necessary for some commands that need root access, but not for all.
 
 ## Contributing 🤝
 
