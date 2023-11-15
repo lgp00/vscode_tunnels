@@ -1,10 +1,4 @@
 ---
-- name: install tldr dnf 
-  become: yes
-  ansible.builtin.dnf:
-    name: tldr
-    state: present
-
 # tasks file for vscode_tunnels_role
 # - name: Print the hostname
 #   ansible.builtin.debug:
