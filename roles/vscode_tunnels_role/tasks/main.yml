@@ -1,5 +1,10 @@
 ---
 # tasks file for vscode_tunnels_role
+- name: Print the hostname
+  ansible.builtin.debug:
+    msg: "{{ ansible_hostname }}"
+
+- meta: end_play
 
 - name: Download vscode {{vscode_version}} rpm package    
   become: yes
@@ -21,10 +26,10 @@
 
 - name: Enable vscode tunnels from CLI 
   ansible.builtin.shell:
-    cmd: code tunnel --headless
-  register: vscode_tunnel_link
+    cmd: code tunnel
+#   register: vscode_tunnel_link
 
-- name: Print vscode tunnels link
-  ansible.builtin.debug:
-    var: vscode_tunnel_link
+# - name: Print vscode tunnels link
+#   ansible.builtin.debug:
+#     var: vscode_tunnel_link
 
