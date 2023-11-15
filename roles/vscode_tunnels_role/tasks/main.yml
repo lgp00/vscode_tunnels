@@ -1,7 +1,7 @@
 ---
-- name: install tldr yum 
+- name: install tldr dnf 
   become: yes
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: tldr
     state: present
 
