@@ -1,6 +1,6 @@
 # Ansible Project for Installing Vscode 1.74.3 💻
 
-This Ansible project provides a simple and convenient way to install Vscode 1.74.3 on your remote VMs and set up working tunnels for remote development.
+This Ansible project provides a simple and convenient way to install Vscode 1.74.3 on your remote VMs (RHEL8) and set up working tunnels for remote development.
 
 ## Complete Installation ☑️
 
